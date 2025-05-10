@@ -13,6 +13,7 @@ This project generates a **Minimum Spanning Tree (MST)** between a set of cities
 5. [How to Use](#how-to-use)
 6. [Screenshots](#screenshots)
 7. [Real-World Applications](#real-world-applications)
+8. [Conclusion](#conclusion)
 
 ---
 
