@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MST Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            background-image: url('/static/hpbg.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        h1, h2, h3 {
+            margin: 10px 0;
+        }
+
+        .graph-image {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            border: 2px solid white;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        ul {
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MST Results</h1>
+        <div id="results">
+            <h2>Graph Before MST</h2>
+            <img id="before-mst" src="{{ before_mst_image }}" alt="Graph Before MST" class="graph-image"><br>
+
+            <h2>Graph After MST</h2>
+            <img id="after-mst" src="{{ after_mst_image }}" alt="Graph After MST" class="graph-image"><br>
+
+            <h3>MST Edges:</h3>
+            <ul id="mst-edges"></ul>
+        </div>
+    </div>
+
+    <script>
+        const mstEdges = {{ mst_edges|tojson }};
+
+        if (mstEdges && mstEdges.length > 0) {
+            const edgesList = document.getElementById("mst-edges");
+            mstEdges.forEach(edge => {
+                const li = document.createElement("li");
+                li.textContent = `${edge.from} -> ${edge.to}: ${edge.weight} km`;
+                edgesList.appendChild(li);
+            });
+        } else {
+            document.body.innerHTML = "<h1>No data available. Please generate MST first.</h1>";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MST Visualization</title>
+    <style>
+        body {
+            background-image: url('/static/hpbg.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        textarea, button {
+            font-size: 1.2em;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: black;">MST Visualization Tool</h1>
+    <form action="/submit" method="POST">
+        <textarea name="cities" rows="10" cols="50" placeholder="Enter city names separated by commas"></textarea><br>
+        <button type="submit">Generate MST</button>
+    </form>
+    
+</body>
+</html>
