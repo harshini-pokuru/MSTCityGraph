@@ -9,11 +9,13 @@ This project generates a **Minimum Spanning Tree (MST)** between a set of cities
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
-4. [Installation Instructions](#installation-instructions)
-5. [How to Use](#how-to-use)
-6. [Screenshots](#screenshots)
-7. [Real-World Applications](#real-world-applications)
-8. [Conclusion](#conclusion)
+4. [Workflow](#workflow)
+5. [MST Visualization](#mst-visualization-comparative-study)
+6. [Installation Instructions](#installation-instructions)
+7. [How to Use](#how-to-use)
+8. [Screenshots](#screenshots)
+9. [Real-World Applications](#real-world-applications)
+10. [Conclusion](#conclusion)
 
 ---
 
@@ -57,6 +59,60 @@ This project can be applied to real-world problems such as road network design, 
 * **JavaScript**: For interactive elements (optional if you want to use it).
 
 ---
+## Workflow
+
+![Workflow](screenshots/Workflow.png)
+
+This diagram outlines the step-by-step process involved in constructing the Minimum Spanning Tree (MST) for a set of cities:
+
+1. **Collect city data**: Users input city names, which are geocoded into coordinates.
+2. **Preprocess data**: Clean and structure the data for graph creation.
+3. **Graph construction**: A weighted graph is formed where cities are nodes and distances are edge weights.
+4. **Apply MST algorithms**: Algorithms like Prim’s or Kruskal’s are used to compute the MST.
+5. **Generate MST**: Extract the optimal edges that form the MST.
+6. **Visualize MST**: Before and after comparison to show the impact of the MST.
+
+---
+
+## MST Visualization: Comparative Study
+
+This section provides a visual and analytical comparison of the Minimum Spanning Trees (MSTs) generated using **Prim’s Algorithm** and **Kruskal’s Algorithm**. The graphs below show the city network **before and after** applying each algorithm.
+
+### Using Prim’s Algorithm
+
+| Before MST & After MST                                |
+| ----------------------------------------------------- |
+| ![Prim's Before & After](screenshots/prims.png) |
+
+**Observation:**
+Prim’s algorithm starts with an arbitrary node and grows the MST by adding the minimum weight edge connected to the current tree. This tends to produce a more locally optimized structure when node distribution is dense or clustered.
+
+### Using Kruskal’s Algorithm
+
+| Before MST & After MST                                      |
+| ----------------------------------------------------------- |
+| ![Kruskal's Before](screenshots/kruskals.png) |
+
+**Observation:**
+Kruskal’s algorithm sorts all edges by weight and adds them in order, avoiding cycles. It can handle disconnected graphs initially and is more efficient when edges are already sorted. It results in globally optimal edges regardless of starting point.
+
+### Comparative Summary
+
+| Criteria                    | Prim’s Algorithm                       | Kruskal’s Algorithm                         |
+| --------------------------- | -------------------------------------- | ------------------------------------------- |
+| Approach                    | Greedy, grows MST from a single vertex | Greedy, adds edges by weight globally       |
+| Graph Requirement           | Connected graph                        | Can work with disconnected graphs initially |
+| Edge Selection              | Based on adjacent nodes to tree        | Based on globally minimum weight edges      |
+| Performance on Dense Graphs | Performs well                          | Slightly slower due to edge sorting         |
+| Use Case                    | Suitable for dense graphs              | Suitable for sparse graphs                  |
+
+
+### For In-Depth Analysis
+
+Refer to the [Comparative study (PDF)](https://github.com/harshini-pokuru/MSTCityGraph/blob/main/Comparative%20study.pdf) or [Final_Report (PDF)](https://github.com/harshini-pokuru/MSTCityGraph/blob/main/Final_Report.pdf) for detailed methodology, time complexity analysis, and real-world application relevance.
+
+---
+
 
 ## **Installation Instructions**
 
